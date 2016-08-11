@@ -39,7 +39,11 @@ public class Book {
         return new Book(title, author, genre, rating, recommend);
     }
 
-
+    @Override
+    public String toString() {
+        return String.format("Title: %s\nAuthor: %s\nGenre: %s\nRating: %s\nRecommend: %s\n",
+                title, author, genre, rating, recommend);
+    }
 
     public Book(String title, String author, String genre, int rating, String recommend) {
         this.title = title;

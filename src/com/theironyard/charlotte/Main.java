@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-	// write your code here
+        // write your code here
         Scanner scanner = new Scanner(System.in);
 
         // create file
@@ -38,12 +38,27 @@ public class Main {
             System.out.println("Sorry This Is Invalid Text");
         }
 
-        // prompt for updating file
-        System.out.println("Would you like to update your file");
-        String updatePrompt = scanner.nextLine();
+        // prompt for updating file only if file exists
+        if (file.exists()) {
+            System.out.println("Would you like to update your information?");
+            String updatePrompt = scanner.nextLine();
 
-        if (updatePrompt.equalsIgnoreCase("yes")) {
+            if (updatePrompt.equalsIgnoreCase ("yes")) {
+                Book b = Book.createBook();
 
+                // Turn Book b into JSON object
+                JsonSerializer serializer = new JsonSerializer();
+                String jsonBook = serializer.serialize(b);
+
+                // use filewriter to write
+                FileWriter fileWriter = new FileWriter(file);
+
+                fileWriter.write(jsonBook);
+                fileWriter.close();
+            } else {
+                System.out.println("thank you come again");
+            }
+        } else {
             Book b = Book.createBook();
 
             // Turn Book b into JSON object
@@ -55,13 +70,6 @@ public class Main {
 
             fileWriter.write(jsonBook);
             fileWriter.close();
-
-
-
-        } else if (updatePrompt.equalsIgnoreCase("no")) {
-
         }
-
-
     }
 }
