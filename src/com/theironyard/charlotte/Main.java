@@ -24,9 +24,11 @@ public class Main {
             Scanner scan = new Scanner(file);
             scan.useDelimiter("\\Z");
             String contents = scan.next();
+
             // deserialize json file
             JsonParser parser = new JsonParser();
             Book b2 = parser.parse(contents, Book.class);
+
             // print file
             System.out.print(b2);
 
