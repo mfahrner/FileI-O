@@ -1,5 +1,7 @@
 package com.theironyard.charlotte;
 
+import java.util.Scanner;
+
 /**
  * Created by mfahrner on 8/10/16.
  */
@@ -10,9 +12,34 @@ public class Book {
     int rating;
     String recommend;
 
-    public static Book createBook(String title, String author, String genre, int rating, String recommend) throws Exception {
+    public Book() {
+
+    }
+
+    public static Book createBook() throws Exception {
+        // prompts for createBook
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("1.What is the title of the book?");
+        String title = scanner.nextLine();
+
+        System.out.println("2.Who is the author of the book?");
+        String author = scanner.nextLine();
+
+        System.out.println("3.What is the genre of the book?");
+        String genre = scanner.nextLine();
+
+        System.out.println("4.On a scale of 1-10 rate your enjoyment of the book?");
+        String rate = scanner.nextLine();
+        int rating = Integer.parseInt(rate);
+
+        System.out.println("5.Would you recommend this book to a friend?");
+        String recommend = scanner.nextLine();
+
         return new Book(title, author, genre, rating, recommend);
     }
+
+
 
     public Book(String title, String author, String genre, int rating, String recommend) {
         this.title = title;
