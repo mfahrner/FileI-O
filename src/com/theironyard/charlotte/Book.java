@@ -17,8 +17,9 @@ public class Book {
     }
 
     public static Book createBook() throws Exception {
-        // prompts for createBook
         Scanner scanner = new Scanner(System.in);
+        Scanner scannerInt = new Scanner(System.in);
+
 
         System.out.println("1.What is the title of the book?");
         String title = scanner.nextLine();
@@ -30,8 +31,7 @@ public class Book {
         String genre = scanner.nextLine();
 
         System.out.println("4.On a scale of 1-10 rate your enjoyment of the book?");
-        String rate = scanner.nextLine();
-        int rating = Integer.parseInt(rate);
+        int rating = Integer.parseInt(scannerInt.nextLine());
 
         System.out.println("5.Would you recommend this book to a friend?");
         String recommend = scanner.nextLine();
